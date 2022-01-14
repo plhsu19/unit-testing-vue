@@ -6,7 +6,7 @@ describe('LoginForm', () => {
         const wrapper = mount(LoginForm);
         // writing tests by mimicing how user would interact with the component
         // 1. Find text input
-        const input = wrapper.find('input[type="text"');
+        const input = wrapper.find('input[type="text"]');
 
         // 2. Set value for text input
         input.setValue('Adam Jahr');

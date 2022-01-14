@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$emit('formSubmitted', { name: this.name })
+      this.$emit('formSubmitted', { name: this.name }) // {name: this.name} is the payload of the customed event
     }
   }
 }

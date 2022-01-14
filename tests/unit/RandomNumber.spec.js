@@ -11,10 +11,10 @@ describe('RandomNumber', () => {
         const wrapper = mount(RandomNumber);
         // find the button in the component and trigger the 'click' event on the button
         // trigger returns a Promise, which when resolved, guarantees the component is updated. 
-        await wrapper.find('button').trigger('click');
+        wrapper.find('button').trigger('click');
 
         // wait until the DOM update is finished (make the following code asynchrounously)
-        // await wrapper.vm.$nextTick();
+        await wrapper.vm.$nextTick();
 
         // check if the content of the output <span></span> is within the expected range
         const randomNumber = parseInt(wrapper.find('span').element.textContent);
@@ -29,7 +29,7 @@ describe('RandomNumber', () => {
                 max: 300,
             }
         });
-        await wrapper.find('button').trigger('click');
+        await wrapper.find('button').trigger('click'); // trigger() gauranted the element is updated when resolved
 
         // check if the content of the output <span></span> is within the expected range
         const randomNumber = parseInt(wrapper.find('span').element.textContent);
