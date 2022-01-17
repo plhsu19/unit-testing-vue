@@ -3,8 +3,9 @@ import { mount } from '@vue/test-utils';
 import { getMessage } from '@/services/axios.js'
 import flushPromises from 'flush-promises';
 
-// create mock function of the getMessage
+// create mock version of the getMessage in the axios module
 jest.mock('@/services/axios.js');
+
 // make sure the mocks (calls & properties instances) are cleared before each test
 beforeEach(() => {
     jest.clearAllMocks();
@@ -26,7 +27,7 @@ describe('MessageDisplay', () => {
         
         // check that component displays message
         const message = wrapper.find('[data-testid="message"]').element.textContent;
-        expect(message).toBe(mockedMessage);
+        expect(message).toEqual(mockedMessage);
     })
 
     it('Displays an error when getMessage call fails', async () => {
@@ -42,7 +43,7 @@ describe('MessageDisplay', () => {
         expect(getMessage).toHaveBeenCalledTimes(1);
         // check that component displays message
         const error = wrapper.find('[data-testid="message-error"]').element.textContent;
-        expect(error).toBe(mockedError);
+        expect(error).toEqual(mockedError);
     })
 
 })
